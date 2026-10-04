@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "db:migrate": "node --env-file=.env.local scripts/migrate.mjs",
+    "courses:import": "node --env-file=.env.local scripts/import-courses.mjs",
     "db:local": "node scripts/local-db.mjs",
     "test": "playwright test"
   },

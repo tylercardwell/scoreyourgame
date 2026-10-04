@@ -1,15 +1,61 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, CaretDown, Check } from '@phosphor-icons/react';
 import { api, Modal, Busy, ErrorMessage } from './ui';
+type CourseHit = {
+  id: string;
+  name: string;
+  city: string | null;
+  state: string | null;
+  par: number | null;
+  holeCount: number | null;
+  pars: number[] | null;
+};
 export function StartModal({ close, name }: { close: () => void; name: string }) {
   const router = useRouter();
   const [count, setCount] = useState<9 | 18>(18),
     [pars, setPars] = useState(Array<number>(18).fill(4)),
     [settings, setSettings] = useState(false),
     [busy, setBusy] = useState(false),
-    [error, setError] = useState('');
+    [error, setError] = useState(''),
+    [course, setCourse] = useState(''),
+    [hits, setHits] = useState<CourseHit[]>([]),
+    [picked, setPicked] = useState(false),
+    [note, setNote] = useState('');
+  useEffect(() => {
+    if (picked || course.trim().length < 3) return;
+    let live = true;
+    const timer = setTimeout(() => {
+      api<{ courses: CourseHit[] }>(`/api/courses?q=${encodeURIComponent(course)}`)
+        .then((result) => live && setHits(result.courses))
+        .catch(() => live && setHits([]));
+    }, 350);
+    return () => {
+      live = false;
+      clearTimeout(timer);
+    };
+  }, [course, picked]);
+  const showHits = !picked && course.trim().length >= 3 && hits.length > 0;
+  async function pick(hit: CourseHit) {
+    setPicked(true);
+    setHits([]);
+    setCourse(hit.name);
+    setNote('');
+    try {
+      const { course: full } = await api<{ course: CourseHit }>(`/api/courses/${hit.id}`);
+      if (full.pars?.length) {
+        const holes = full.pars.length >= 18 ? 18 : 9;
+        setCount(holes);
+        setPars(Array.from({ length: 18 }, (_, i) => full.pars?.[i % holes] ?? 4));
+        setNote(`Loaded pars for ${full.name}. Adjust any hole if it looks off.`);
+      } else {
+        setNote('No hole-by-hole pars on file for this course yet. Set them below if you like.');
+      }
+    } catch {
+      setNote('Could not load pars for this course. You can set them below.');
+    }
+  }
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setBusy(true);
@@ -51,8 +97,34 @@ export function StartModal({ close, name }: { close: () => void; name: string })
             required
             minLength={2}
             maxLength={100}
-            placeholder="Where are you playing?"
+            placeholder="Search or type a course name"
+            autoComplete="off"
+            value={course}
+            onChange={(e) => {
+              setCourse(e.target.value);
+              setPicked(false);
+              setNote('');
+            }}
           />
+          {showHits && (
+            <ul className="course-hits" aria-label="Matching courses">
+              {hits.map((hit) => (
+                <li key={hit.id}>
+                  <button type="button" onClick={() => pick(hit)}>
+                    <span>{hit.name}</span>
+                    <span>{[hit.city, hit.state].filter(Boolean).join(', ')}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <span className="field-note">
+            {note || 'Search to load pars.'} Course data © OpenStreetMap contributors via{' '}
+            <a href="https://opengolfapi.org/attribution" target="_blank" rel="noreferrer">
+              OpenGolfAPI
+            </a>
+            .
+          </span>
         </label>
         <label>
           Your name on the scorecard

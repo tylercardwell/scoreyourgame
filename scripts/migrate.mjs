@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 import { betterAuth } from 'better-auth';
 import { username } from 'better-auth/plugins';
 import { getMigrations } from 'better-auth/db/migration';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 
 if (!process.env.DATABASE_URL) throw new Error('Set DATABASE_URL in .env.local first.');
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -19,7 +19,9 @@ try {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    await client.query(await readFile(new URL('../db/001-rounds.sql', import.meta.url), 'utf8'));
+    const dir = new URL('../db/', import.meta.url);
+    for (const file of (await readdir(dir)).filter((f) => f.endsWith('.sql')).sort())
+      await client.query(await readFile(new URL(file, dir), 'utf8'));
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK');

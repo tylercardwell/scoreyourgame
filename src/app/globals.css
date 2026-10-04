@@ -2053,3 +2053,36 @@ input::placeholder {
     scroll-behavior: auto !important;
   }
 }
+
+.course-hits {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #dce1d6;
+  border-radius: 6px;
+  background: #fff;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.course-hits button {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.course-hits button:hover,
+.course-hits button:focus-visible {
+  background: var(--soft-green);
+}
+.course-hits button span:last-child {
+  font-size: 11px;
+  color: var(--muted);
+}
