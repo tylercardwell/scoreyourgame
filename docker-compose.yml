@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: scoreyourgame
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your environment}
+      POSTGRES_DB: scoreyourgame
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - golf-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U scoreyourgame']
+      interval: 5s
+      retries: 5
+volumes:
+  golf-data:

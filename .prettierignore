@@ -1,0 +1,6 @@
+node_modules
+.next
+.local-postgres
+package-lock.json
+test-results
+next-env.d.ts
