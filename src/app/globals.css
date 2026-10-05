@@ -387,8 +387,8 @@ a svg {
   padding: 22px 0;
   display: flex;
   justify-content: space-between;
-  color: #858b80;
-  font-size: 10px;
+  color: #5d645a;
+  font-size: 12px;
 }
 .footer-dot {
   margin: 0 8px;
@@ -2036,7 +2036,7 @@ input::placeholder {
   font: 600 13px var(--display);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b7a90;
+  color: #52617a;
   text-align: right;
   padding: 12px 16px;
   background: #eef1f6;
@@ -2052,7 +2052,7 @@ input::placeholder {
 .lb-card td:nth-child(1) {
   text-align: left;
   width: 52px;
-  color: #6b7a90;
+  color: #52617a;
 }
 .lb-card th:nth-child(2),
 .lb-card td:nth-child(2) {
@@ -2074,7 +2074,7 @@ input::placeholder {
   padding: 14px 22px;
   background: #fafbfd;
   font-size: 13px;
-  color: #6b7a90;
+  color: #52617a;
   display: flex;
   justify-content: space-between;
   gap: 12px;
