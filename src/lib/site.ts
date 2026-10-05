@@ -11,6 +11,7 @@ export const GUIDES = [
   { path: '/free-golf-scorecard', label: 'Free golf scorecard' },
   { path: '/printable-golf-scorecard', label: 'Printable golf scorecard' },
   { path: '/how-to-keep-score-in-golf', label: 'How to keep score in golf' },
+  { path: '/stableford-calculator', label: 'Stableford calculator' },
 ] as const;
 export const COMPANY = [
   { path: '/about', label: 'About' },
