@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { COMPANY, COMPANY_NAME, COMPANY_URL, GUIDES } from '@/lib/site';
 import { authClient } from '@/lib/auth-client';
 import { Brand, Modal, ErrorMessage } from './ui';
 import { AuthModal } from './auth-modal';
@@ -95,9 +96,12 @@ export function Shell({
         <span>
           {variant === 'round' ? 'Scores save when you tap Save.' : 'A better round, together.'}
         </span>
-        <nav className="footer-links" aria-label="Guides">
-          <Link href="/free-golf-scorecard">Free golf scorecard</Link>
-          <Link href="/how-to-keep-score-in-golf">How to keep score in golf</Link>
+        <nav className="footer-links" aria-label="Site">
+          {[...GUIDES, ...COMPANY].map((page) => (
+            <Link key={page.path} href={page.path}>
+              {page.label}
+            </Link>
+          ))}
         </nav>
         <span>
           {variant === 'round' && (
@@ -106,8 +110,8 @@ export function Shell({
             </>
           )}
           ScoreYourGame <span className="footer-dot">·</span> Built by{' '}
-          <a href="https://cardwellweb.com" target="_blank" rel="noopener">
-            Cardwell Web
+          <a href={COMPANY_URL} target="_blank" rel="noopener">
+            {COMPANY_NAME}
           </a>
         </span>
       </footer>

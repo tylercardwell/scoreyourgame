@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { GUIDES } from '@/lib/site';
 import { Shell } from './shell';
 
 export type Faq = { q: string; a: string };
@@ -45,12 +46,11 @@ export function Article({
           </section>
         )}
         <nav className="article-more" aria-label="More from ScoreYourGame">
-          {path !== '/free-golf-scorecard' && (
-            <Link href="/free-golf-scorecard">Free golf scorecard</Link>
-          )}
-          {path !== '/how-to-keep-score-in-golf' && (
-            <Link href="/how-to-keep-score-in-golf">How to keep score in golf</Link>
-          )}
+          {GUIDES.filter((guide) => guide.path !== path).map((guide) => (
+            <Link key={guide.path} href={guide.path}>
+              {guide.label}
+            </Link>
+          ))}
           <Link href="/">Start a round</Link>
         </nav>
       </main>

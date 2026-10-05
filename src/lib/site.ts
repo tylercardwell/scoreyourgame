@@ -7,8 +7,20 @@ export const SITE_NAME = 'ScoreYourGame';
 export const SITE_TITLE = 'Free Golf Scorecard & Live Score Tracker';
 export const SITE_DESCRIPTION =
   'Free golf scoring for you and your friends. Start a round, share a code, and keep one live scorecard for the whole group. No app to download, and guests can join without an account.';
+export const GUIDES = [
+  { path: '/free-golf-scorecard', label: 'Free golf scorecard' },
+  { path: '/printable-golf-scorecard', label: 'Printable golf scorecard' },
+  { path: '/how-to-keep-score-in-golf', label: 'How to keep score in golf' },
+] as const;
+export const COMPANY = [
+  { path: '/about', label: 'About' },
+  { path: '/privacy', label: 'Privacy' },
+  { path: '/terms', label: 'Terms' },
+] as const;
 export const PAGES = [
   { path: '/', priority: 1 },
-  { path: '/free-golf-scorecard', priority: 0.9 },
-  { path: '/how-to-keep-score-in-golf', priority: 0.8 },
-] as const;
+  ...GUIDES.map(({ path }) => ({ path, priority: 0.9 })),
+  ...COMPANY.map(({ path }) => ({ path, priority: 0.3 })),
+];
+export const COMPANY_NAME = 'Cardwell Web';
+export const COMPANY_URL = 'https://cardwellweb.com';

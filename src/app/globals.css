@@ -2327,3 +2327,56 @@ input::placeholder {
 .site-footer a:hover {
   color: var(--green);
 }
+.print-sheet {
+  margin: 18px 0;
+}
+.print-meta {
+  margin: 10px 0;
+}
+.article table.print-card {
+  table-layout: fixed;
+  border: 1px solid #1d2b3f;
+  margin: 12px 0;
+}
+.article table.print-card th,
+.article table.print-card td {
+  border: 1px solid #1d2b3f;
+  padding: 0;
+  height: 34px;
+  text-align: center;
+  font-size: 13px;
+}
+.article table.print-card th:first-child {
+  width: 18%;
+  text-align: left;
+  padding-left: 8px;
+}
+@media print {
+  .util-bar,
+  .site-header,
+  .site-footer,
+  .article-cta,
+  .article-more,
+  .article-eyebrow,
+  .article-intro,
+  .article details,
+  .article section[aria-labelledby='faq'],
+  .no-print {
+    display: none !important;
+  }
+  body,
+  .app-shell {
+    background: #fff;
+  }
+  .article {
+    max-width: none;
+    padding: 0;
+  }
+  .article h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .article h2 {
+    display: none;
+  }
+}
