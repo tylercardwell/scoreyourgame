@@ -21,7 +21,7 @@ test('a host and an account-free guest share a real live round', async ({ browse
   try {
     await host.goto('/');
     await expect(
-      host.getByRole('heading', { name: 'Less scorekeeping. More golf.' }),
+      host.getByRole('heading', { name: 'The leaderboard for your group' }),
     ).toBeVisible();
     await host.screenshot({ path: 'test-results/home-desktop.png', fullPage: true });
     await host.getByRole('button', { name: /Start a round/ }).click();
@@ -34,6 +34,8 @@ test('a host and an account-free guest share a real live round', async ({ browse
     await host.getByLabel('Round name').fill('Sunday at the links');
     await host.getByLabel('Course', { exact: true }).fill('Prairie Links Golf Club');
     await host.getByRole('button', { name: /9 holes/ }).click();
+    // The scorecard name is pre-filled from the session, which loads just after sign-up.
+    await expect(host.getByLabel('Your name on the scorecard')).toHaveValue('Alex Morgan');
     await host.getByRole('button', { name: 'Start round', exact: true }).click();
     await expect(host).toHaveURL(/\/round\/[0-9a-f-]+$/);
     const id = host.url().split('/').pop()!;

@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Barlow, Arial, sans-serif; color: #0b1a2e; width: 1440px; background: #fff; }
+a { color: inherit; text-decoration: none; }
+.util { background: #06101f; color: #9fb0c8; font-size: 12px; display: flex; justify-content: space-between; padding: 8px 48px; }
+.nav { display: flex; align-items: center; gap: 36px; padding: 0 48px; height: 68px; }
+.logo { font-family: 'Barlow Condensed'; font-weight: 800; font-size: 28px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 30px; height: 30px; border-radius: 50%; background: #2f7d4f; display: inline-block; }
+.nav a { font-family: 'Barlow Condensed'; font-weight: 600; font-size: 17px; text-transform: uppercase; letter-spacing: 0.06em; }
+.sp { flex: 1; }
+.btn { font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 17px; padding: 13px 28px; display: inline-block; border-radius: 2px; }
+.live { background: #e4202e; color: #fff; font: 700 12px 'Barlow Condensed'; letter-spacing: 0.1em; padding: 3px 8px; text-transform: uppercase; display: inline-block; }

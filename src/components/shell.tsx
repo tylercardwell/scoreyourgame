@@ -10,10 +10,12 @@ export function Shell({
   children,
   active = 'play',
   compact = false,
+  variant = 'default',
 }: {
   children: React.ReactNode;
   active?: 'play' | 'rounds';
   compact?: boolean;
+  variant?: 'default' | 'round';
 }) {
   const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
@@ -22,7 +24,13 @@ export function Shell({
     [menu, setMenu] = useState(false),
     [error, setError] = useState('');
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${variant === 'round' ? 'round-shell' : ''}`}>
+      {variant !== 'round' && (
+        <div className="util-bar">
+          <span>Live scoring for every group</span>
+          <span>Everyone plays. Everyone scores.</span>
+        </div>
+      )}
       <header className="site-header">
         <div className="header-inner">
           <Brand />
@@ -34,7 +42,7 @@ export function Shell({
               <Link className={active === 'rounds' ? 'nav-active' : ''} href="/rounds">
                 My rounds
               </Link>
-              <button onClick={() => setHelp(true)}>How it works</button>
+              {variant !== 'round' && <button onClick={() => setHelp(true)}>How it works</button>}
             </nav>
           )}
           <div className="header-account">
@@ -84,9 +92,23 @@ export function Shell({
       </header>
       {children}
       <footer className="site-footer">
-        <span>A better round, together.</span>
         <span>
-          ScoreYourGame <span className="footer-dot">·</span> Built for the fairway
+          {variant === 'round' ? 'Scores save when you tap Save.' : 'A better round, together.'}
+        </span>
+        <nav className="footer-links" aria-label="Guides">
+          <Link href="/free-golf-scorecard">Free golf scorecard</Link>
+          <Link href="/how-to-keep-score-in-golf">How to keep score in golf</Link>
+        </nav>
+        <span>
+          {variant === 'round' && (
+            <>
+              A better round, together. <span className="footer-dot">·</span>{' '}
+            </>
+          )}
+          ScoreYourGame <span className="footer-dot">·</span> Built by{' '}
+          <a href="https://cardwellweb.com" target="_blank" rel="noopener">
+            Cardwell Web
+          </a>
         </span>
       </footer>
       {authOpen && <AuthModal close={() => setAuthOpen(false)} done={() => setAuthOpen(false)} />}

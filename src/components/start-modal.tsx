@@ -90,9 +90,10 @@ export function StartModal({ close, name }: { close: () => void; name: string })
             placeholder="Saturday with the crew"
           />
         </label>
-        <label>
-          Course
+        <div className="course-field">
+          <label htmlFor="course-input">Course</label>
           <input
+            id="course-input"
             name="course"
             required
             minLength={2}
@@ -125,7 +126,7 @@ export function StartModal({ close, name }: { close: () => void; name: string })
             </a>
             .
           </span>
-        </label>
+        </div>
         <label>
           Your name on the scorecard
           <input name="nickname" required minLength={2} maxLength={30} defaultValue={name} />

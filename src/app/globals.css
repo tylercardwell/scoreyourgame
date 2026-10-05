@@ -274,30 +274,6 @@ a svg {
   padding-bottom: 20px;
   flex: 1;
 }
-.page-greeting {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--muted);
-  font-size: 12px;
-  margin-bottom: 30px;
-}
-.greeting-right {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-}
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 38px;
-}
-.hero-copy {
-  padding: 12px 0;
-}
 .eyebrow {
   font-family: var(--font-geist-mono), monospace;
   letter-spacing: 1.35px;
@@ -305,21 +281,6 @@ a svg {
   font-weight: 500;
   color: var(--green);
   line-height: 1.6;
-}
-.hero h1 {
-  font-size: clamp(36px, 4.5vw, 61px);
-  line-height: 1.09;
-  letter-spacing: -3px;
-  margin: 16px 0 20px;
-  font-weight: 500;
-}
-.hero h1 > span {
-  color: var(--green);
-}
-.hero-description {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--muted);
 }
 .hero-benefits {
   display: flex;
@@ -337,102 +298,6 @@ a svg {
 }
 .hero-benefits svg {
   color: var(--green);
-}
-.hero-photo {
-  position: relative;
-  min-height: 286px;
-  align-self: stretch;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: #d8dfca;
-}
-.hero-photo img {
-  object-fit: cover;
-  object-position: center 52%;
-  filter: saturate(0.74);
-}
-.photo-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 25px;
-  background: #142918c9;
-  color: white;
-  font-size: 12px;
-}
-.photo-caption svg {
-  color: #d5e3b0;
-}
-.play-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-.action-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 31px;
-  display: flex;
-  position: relative;
-  gap: 22px;
-  text-align: left;
-  transition:
-    border-color 0.2s,
-    background 0.2s;
-}
-.action-card:hover {
-  border-color: #a6b59c;
-  background: #fdfefb;
-}
-.action-card:active {
-  transform: scale(0.995);
-}
-.action-icon {
-  background: var(--soft-green);
-  border-radius: 8px;
-  width: 51px;
-  height: 51px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--green);
-  flex-shrink: 0;
-}
-.join-card .action-icon {
-  background: #f3f3ed;
-  color: #565f4d;
-}
-.action-copy h2 {
-  font-size: 23px;
-  font-weight: 550;
-  letter-spacing: -0.8px;
-  line-height: 1.25;
-  margin: 1px 0 10px;
-}
-.action-copy p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-}
-.action-cta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 22px;
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 600;
-}
-.action-corner {
-  position: absolute;
-  right: 28px;
-  top: 31px;
-  color: #83917c;
 }
 .recent-section {
   margin-top: 42px;
@@ -1598,18 +1463,6 @@ input::placeholder {
   .home {
     padding-top: 42px;
   }
-  .hero-photo {
-    min-height: 306px;
-  }
-  .hero {
-    margin-bottom: 44px;
-  }
-  .play-actions {
-    gap: 22px;
-  }
-  .action-card {
-    padding: 35px;
-  }
   .recent-section {
     margin-top: 45px;
   }
@@ -1621,27 +1474,9 @@ input::placeholder {
   .main-nav {
     gap: 24px;
   }
-  .hero {
-    gap: 27px;
-  }
-  .hero h1 {
-    font-size: 46px;
-    letter-spacing: -2px;
-  }
   .hero-benefits {
     gap: 10px;
     font-size: 9px;
-  }
-  .action-card {
-    padding: 25px;
-    gap: 16px;
-  }
-  .action-corner {
-    right: 20px;
-    top: 26px;
-  }
-  .action-copy h2 {
-    font-size: 22px;
   }
   .game-layout {
     grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
@@ -1688,77 +1523,10 @@ input::placeholder {
   .home {
     padding-top: 25px;
   }
-  .page-greeting {
-    font-size: 11px;
-    margin-bottom: 25px;
-  }
-  .greeting-right {
-    display: none;
-  }
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-bottom: 25px;
-  }
-  .hero-copy {
-    padding: 0;
-  }
-  .hero h1 {
-    font-size: clamp(40px, 8vw, 56px);
-    letter-spacing: -2.5px;
-    margin: 13px 0 16px;
-  }
-  .hero-description {
-    font-size: 13px;
-  }
   .hero-benefits {
     font-size: 10px;
     gap: 17px;
     margin-top: 20px;
-  }
-  .hero-photo {
-    min-height: 190px;
-    max-height: 230px;
-  }
-  .photo-caption {
-    padding: 15px 18px;
-    font-size: 11px;
-  }
-  .play-actions {
-    gap: 13px;
-  }
-  .action-card {
-    padding: 22px 18px;
-    gap: 16px;
-    display: block;
-  }
-  .action-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 19px;
-  }
-  .action-icon svg {
-    width: 23px;
-    height: 23px;
-  }
-  .action-copy h2 {
-    font-size: 20px;
-    letter-spacing: -0.8px;
-    margin-bottom: 10px;
-  }
-  .action-copy p {
-    font-size: 11px;
-    line-height: 1.7;
-  }
-  .action-cta {
-    font-size: 11px;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  .action-corner {
-    top: 24px;
-    right: 18px;
-    width: 20px;
   }
   .recent-section {
     margin-top: 31px;
@@ -2014,25 +1782,9 @@ input::placeholder {
   .brand {
     font-size: 19px;
   }
-  .hero h1 {
-    font-size: 38px;
-    letter-spacing: -2px;
-  }
   .hero-benefits {
     gap: 10px;
     font-size: 9px;
-  }
-  .action-card {
-    padding: 20px 14px;
-  }
-  .action-copy h2 {
-    font-size: 18px;
-  }
-  .action-copy p {
-    font-size: 10px;
-  }
-  .action-cta {
-    font-size: 10px;
   }
   .game-heading h1 {
     font-size: 27px;
@@ -2085,4 +1837,493 @@ input::placeholder {
 .course-hits button span:last-child {
   font-size: 11px;
   color: var(--muted);
+}
+
+/* ---- Tour-style landing page ---- */
+:root {
+  --navy: #0a2240;
+  --navy-deep: #06101f;
+  --live: #e4202e;
+  --display: var(--font-display), 'Arial Narrow', sans-serif;
+}
+.util-bar {
+  background: var(--navy-deep);
+  color: #9fb0c8;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 48px;
+}
+.site-header {
+  height: 68px;
+  background: #fff;
+  border-bottom: 1px solid #dfe5ee;
+}
+.brand {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.brand-soft {
+  font-weight: 800;
+}
+.brand-symbol {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.brand-symbol svg {
+  width: 17px;
+  height: 17px;
+}
+.main-nav {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.header-signin {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 2px;
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.live-tag {
+  display: inline-block;
+  background: var(--live);
+  color: #fff;
+  font: 700 12px var(--display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+.tour-home {
+  flex: 1;
+}
+.tour-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 540px);
+  gap: 56px;
+  align-items: center;
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 56px 48px 64px;
+}
+.tour-home {
+  background: #f4f6fa;
+}
+.tour-hero-copy h1 {
+  font: 800 80px/0.94 var(--display);
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 16px;
+  letter-spacing: 0;
+}
+.tour-hero-copy h1 span {
+  color: var(--green);
+}
+.tour-lede {
+  font-size: 19px;
+  line-height: 1.5;
+  color: #44546b;
+  margin: 22px 0 28px;
+  max-width: 520px;
+}
+.tour-greeting {
+  font-size: 13px;
+  color: var(--muted);
+  margin: -12px 0 20px;
+}
+.tour-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tour-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 700 17px var(--display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s;
+}
+.tour-btn:active {
+  transform: scale(0.98);
+}
+.tour-btn-solid {
+  background: var(--navy);
+  color: #fff;
+}
+.tour-btn-solid:hover {
+  background: #14365f;
+}
+.tour-btn-outline {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+.tour-btn-outline:hover {
+  background: var(--navy);
+  color: #fff;
+}
+.tour-btn-white {
+  background: #fff;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.tour-btn-white:hover {
+  background: #e9eef5;
+}
+.tour-hero .hero-benefits {
+  margin-top: 26px;
+}
+.lb-card {
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(10, 34, 64, 0.15);
+  min-width: 0;
+}
+.lb-head {
+  background: var(--navy);
+  color: #fff;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.lb-head b {
+  font: 700 22px var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lb-final {
+  font: 700 12px var(--display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b9c8dd;
+  border: 1px solid #3a5679;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+.lb-head .live-tag {
+  white-space: nowrap;
+}
+.lb-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.lb-card th {
+  font: 600 13px var(--display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7a90;
+  text-align: right;
+  padding: 12px 16px;
+  background: #eef1f6;
+}
+.lb-card td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #e6ebf2;
+  text-align: right;
+  font: 600 22px var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.lb-card th:nth-child(1),
+.lb-card td:nth-child(1) {
+  text-align: left;
+  width: 52px;
+  color: #6b7a90;
+}
+.lb-card th:nth-child(2),
+.lb-card td:nth-child(2) {
+  text-align: left;
+}
+.lb-card td:nth-child(2) {
+  font:
+    600 18px var(--font-geist-sans),
+    sans-serif;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lb-card td.under {
+  color: #d11b2a;
+}
+.lb-foot {
+  padding: 14px 22px;
+  background: #fafbfd;
+  font-size: 13px;
+  color: #6b7a90;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tour-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.tour-action {
+  padding: 48px max(24px, calc((100vw - 1200px) / 2 + 24px));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+}
+.tour-action:first-child {
+  padding-right: 48px;
+}
+.tour-action:last-child {
+  padding-left: 48px;
+}
+.tour-action h2 {
+  font: 800 40px/1 var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+.tour-action p {
+  margin-top: 8px;
+  font-size: 15px;
+}
+.tour-action-start {
+  background: var(--green);
+}
+.tour-action-start p {
+  color: #d7ecdf;
+}
+.tour-action-join {
+  background: var(--navy);
+}
+.tour-action-join p {
+  color: #b9c8dd;
+}
+.tour-lower {
+  padding-top: 36px;
+  background: #fff;
+  max-width: none;
+}
+.tour-lower > * {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tour-home .recent-section {
+  margin-top: 8px;
+}
+.tour-home .section-title h2 {
+  font: 800 34px var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+@media (max-width: 1000px) {
+  .tour-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 40px 32px 48px;
+  }
+  .tour-hero-copy h1 {
+    font-size: 72px;
+  }
+  .util-bar {
+    padding: 8px 32px;
+  }
+  .tour-actions {
+    grid-template-columns: 1fr;
+  }
+  .tour-action:first-child,
+  .tour-action:last-child {
+    padding: 36px 32px;
+  }
+}
+@media (max-width: 760px) {
+  .util-bar {
+    padding: 8px 22px;
+  }
+  .util-bar span:last-child {
+    display: none;
+  }
+  .site-header {
+    height: 68px;
+  }
+  .brand {
+    font-size: 24px;
+  }
+  .tour-hero {
+    padding: 28px 22px 36px;
+    gap: 28px;
+  }
+  .tour-hero-copy h1 {
+    font-size: 54px;
+  }
+  .tour-lede {
+    font-size: 16px;
+  }
+  .tour-btn {
+    flex: 1 1 100%;
+  }
+  .lb-card th,
+  .lb-card td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .lb-card td {
+    font-size: 20px;
+  }
+  .lb-card td:nth-child(2) {
+    font-size: 16px;
+    max-width: 110px;
+  }
+  .tour-action {
+    padding: 28px 22px !important;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tour-action h2 {
+    font-size: 34px;
+  }
+  .tour-lower {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+.main-nav button {
+  text-transform: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+}
+
+.course-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.course-field label {
+  flex-direction: row;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.footer-links a:hover {
+  color: var(--green);
+}
+.article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  flex: 1;
+  line-height: 1.65;
+}
+.article-eyebrow {
+  font: 700 14px var(--display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.article h1 {
+  font: 800 56px/1 var(--display);
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 10px 0 18px;
+  letter-spacing: 0;
+}
+.article h2 {
+  font: 800 30px var(--display);
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 40px 0 12px;
+  letter-spacing: 0;
+}
+.article-intro {
+  font-size: 18px;
+  color: #44546b;
+}
+.article-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0 8px;
+}
+.article p,
+.article li {
+  font-size: 15px;
+  color: #33425a;
+}
+.article ol,
+.article ul {
+  padding-left: 22px;
+  display: grid;
+  gap: 10px;
+}
+.article a:not(.tour-btn) {
+  color: var(--green);
+  text-decoration: underline;
+}
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.article th,
+.article td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e5ec;
+}
+.article details {
+  border-bottom: 1px solid #e0e5ec;
+  padding: 12px 0;
+}
+.article summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.article details p {
+  margin-top: 8px;
+}
+.article-more {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .article {
+    padding: 32px 22px 48px;
+  }
+  .article h1 {
+    font-size: 40px;
+  }
+}
+.site-footer {
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.site-footer a:hover {
+  color: var(--green);
 }

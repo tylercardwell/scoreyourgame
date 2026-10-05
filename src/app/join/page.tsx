@@ -1,6 +1,7 @@
 import { Shell } from '@/components/shell';
 import { JoinForm } from '@/components/join-form';
 import { QrCode } from '@phosphor-icons/react/dist/ssr';
+export const metadata = { title: 'Join a round', robots: { index: false, follow: false } };
 export default async function Join({ searchParams }: { searchParams: Promise<{ code?: string }> }) {
   const params = await searchParams;
   return (
